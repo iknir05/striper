@@ -1,0 +1,514 @@
+                                 
+<section id="banner">
+        <%= render 'banner' %>
+    
+<div id="parking-striping">
+    <div class="container">
+        <div class="parking-box">
+            <% @facilities.each do |facility| %>
+                <p><span><i class="<%=facility.icon_class%>"></i></span> <%=facility.title%> </p>
+            <%end%>
+            <p><span><i class="fas fa-check"></i></span> Parking Lot Striping </p>
+         
+        </div>
+    </div>
+</div>    
+    <%= render 'form' %>
+</div>  
+</section>
+
+
+    <section id="intro">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="intro-text">
+                        <h1>
+                               <span>1-800-STRIPER</span> serves 
+                                the community locally 
+                                and nationally
+                        </h1>
+                        <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+
+                        <h6>Experience the difference:</h6>
+                        <ul>
+                            <li>
+                                    Fast Response times guaranteed
+                            </li>
+                            <li>
+                                    State of the Art Equipment
+                            </li>
+                            <li>
+                                    Professional Clean Trucks
+                            </li>
+                            <li>
+                                    Friendly and Courteous Staff
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="intro-img">
+                        <%= image_tag("intro.jpg", alt: 'Intro')%>
+                    </div>
+                </div>
+
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </section>
+
+
+
+
+
+    <section id="featured" class="section-tittle text-center">
+            <div class="featured-bg">
+                <div class="container">
+                    <div class="section-title">
+                            <h2>Everything runs smoother with 1-800-STRIPER on the job</h2>
+                            <p>1-800-STRIPER is a full-service parking lot and roadway striping company. Since 1999, we have provided 
+                                    superior service at competitive prices. Our franchisees have the experience and knowledge to complete any job to your satisfaction.</p>
+                    </div>
+                    <div class="row">
+                        <div id="owl-two" class="owl-carousel owl-theme pt-2">
+            
+                                    <div class="item">
+                                        <a href="#">
+                                            <div class="border">
+                                                <div class="featured-img"><%= image_tag("featured-img.jpg", alt: 'Img1')%></div>
+                                                <div class="caption">
+                                                        <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                    </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#">
+                                            <div class="border">
+                                                <div class="featured-img">
+                                                    <%= image_tag("featured-img1.jpg", alt: 'Img2')%>
+                                                    </div>
+                                                <div class="caption">
+                                                        <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                    </div>
+                                              </div> 
+                                              
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#">
+                                            <div class="border">
+                                                <div class="featured-img">
+                                                    <%= image_tag("featured-img2.jpg", alt: 'Img3')%></div>
+                                                <div class="caption">
+                                                        <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                    </div>
+                                            </div>
+                                            
+                                        </a>
+                                    </div>
+                                    
+                                   
+                                    <div class="item">
+                                            <a href="#">
+                                                <div class="border">
+                                                    <div class="featured-img">
+                                                        <%= image_tag("featured-img.jpg", alt: 'Img4')%>
+                                                    </div>
+                                                    <div class="caption">
+                                                            <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                        </div>
+                                                </div>
+                                                
+                                            </a>
+                                        </div>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="border">
+                                                    <div class="featured-img">
+                                                        <%= image_tag("featured-img1.jpg", alt: 'Img5')%>
+                                                        </div>
+                                                    <div class="caption">
+                                                            <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                        </div>
+                                                  </div> 
+                                                  
+                                            </a>
+                                        </div>
+                                        <div class="item">
+                                            <a href="#">
+                                                <div class="border">
+                                                    <div class="featured-img">
+                                                        <%= image_tag("featured-img2.jpg", alt: 'Img6')%>
+                                                    </div>
+                                                    <div class="caption">
+                                                            <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                        </div>
+                                                </div>
+                                                
+                                            </a>
+                                        </div>
+
+
+                                        <div class="item">
+                                                <a href="#">
+                                                    <div class="border">
+                                                        <div class="featured-img"><%= image_tag("featured-img.jpg", alt: 'Img7')%></div>
+                                                        <div class="caption">
+                                                                <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                            </div>
+                                                    </div>
+                                                    
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="#">
+                                                    <div class="border">
+                                                        <div class="featured-img"><%= image_tag("featured-img1.jpg", alt: 'Img8')%></div>
+                                                        <div class="caption">
+                                                                <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                            </div>
+                                                      </div> 
+                                                      
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="#">
+                                                    <div class="border">
+                                                        <div class="featured-img"><
+                                                            %= image_tag("featured-img2.jpg", alt: 'Img9')%>
+                                                    </div>
+                                                        <div class="caption">
+                                                                <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                            </div>
+                                                    </div>
+                                                    
+                                                </a>
+                                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+            
+
+
+            <section id="help">
+                    <div class="container">
+
+                        <div class="section-title mb-5">
+                         <h2>Benefits of franchising</h2>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                 
+                                    <div class="media">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <div class="media-body">
+                                            <h6>Proprietary Systems</h6>
+                                            <p>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                            </p>
+                                        </div>
+                                    </div>
+     
+                            </div>
+                             <div class="col-md-6">
+                                    <div class="media">
+                                            <i class="fas fa-sitemap"></i>
+                                        <div class="media-body">
+                                            <h6>Nationwide Networking Support</h6>
+                                            <p>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                            </p>
+                                        </div>
+                                    </div>
+                             </div>
+                        </div>
+
+                        <div class="row">
+                             <div class="col-md-6">
+                                 
+                                    <div class="media">
+                                            <i class="fas fa-chalkboard-teacher"></i>
+                                        <div class="media-body">
+                                            <h6>Ongoing Training & Support</h6>
+                                            <p>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                            </p>
+                                        </div>
+                                    </div>
+     
+                             </div>
+                             <div class="col-md-6">
+                                    <div class="media">
+                                            <i class="fas fa-user-tag"></i>
+                                        <div class="media-body">
+                                            <h6>Vendor Discounts</h6>
+                                            <p>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                            </p>
+                                        </div>
+                                    </div>
+                             </div>
+                        </div>
+
+                        <div class="row">
+                             <div class="col-md-6">
+                                    <div class="media">
+                                            <i class="fas fa-road"></i>
+                                        <div class="media-body">
+                                            <h6>Marketing & More Marketing</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                            </p>
+                                        </div>
+                                    </div>
+                             </div>
+                             <div class="col-md-6">
+                                    <div class="media">
+                                            <i class="fas fa-bullseye"></i>
+                                        <div class="media-body">
+                                            <h6>Registered Trademark & A Designated Territory</h6>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                            </p>
+                                        </div>
+                                    </div>
+                             </div>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" class=" btn-lg btn btn-outline-primary">View More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                    </div>
+                </section>
+
+
+
+
+
+                <section id="testimonial">
+                    <div class="testimonial-bg">
+                        <div class="container">
+                            <div class="section-title mb-5">
+                                <h2>Customer Reviews</h2>
+                            </div>
+
+                            <div id="owl-three" class="owl-carousel owl-theme">
+                            
+                                <div class="item">
+
+                                    <div class="testimonial-box">
+                                        <span>
+                                            <div class="testimonial-img">
+                                                <%= image_tag("man.jpg", alt: 'testimonial user')%>
+                                            </div>
+                                        </span>
+                                        <span>
+                                            <div class="testimonial-text">
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                                <h6>John Smith, Eng.</h6>
+                                            </div>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <div class="item">
+
+                                        <div class="testimonial-box">
+                                            <span>
+                                                <div class="testimonial-img">
+                                                    <%= image_tag("woman.jpg", alt: 'testimonial user 2')%>
+                                                </div>
+                                            </span>
+                                            <span>
+                                                <div class="testimonial-text">
+                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                                    <h6>John Smith, Eng.</h6>
+                                                </div>
+                                            </span>
+                                        </div>
+    
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+
+                <section id="news">
+                        <div class="news-bg">
+                           <div class="container">
+                            <div class="section-title mb-5">
+                                <h2>Latest News</h2>
+                            </div>
+                            <div class="row">
+        
+                                <div class="col-md-4 col-sm-12">
+                                        <a href="#">
+                                                <div class="card">
+                                                        <div class="card-box">
+                                                            <div class="card-img">
+                                                                <%= image_tag("news1.jpg", alt: 'img3', class: "card-img-top" )%></div>
+                                                         <div class="card-body">
+                                                             <div class="row align-items-center">
+                                                                 <div class="col-xl-10 col-lg-12">
+                                                                         <p>1-800-STRIPER has the latest 
+                                                                                news in the striping industry</p>
+                                                                 </div>
+                                                                 <div class="col-xl-2 col-lg-12">
+                                                                        <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                                                                 </div>
+                 
+                                                             </div>
+                                                           
+                                                           
+                                                         </div>
+                                                        </div>
+                                                 </div>
+                                        </a>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                        <a href="#">
+                                                <div class="card">
+                                                        <div class="card-box">
+                                                            <div class="card-img">
+                                                                <%= image_tag("news2.jpg", alt: 'img4', class: "card-img-top" )%>
+                                                            </div>
+                                                         <div class="card-body">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-xl-10 col-lg-12">
+                                                                        <p>1-800-STRIPER has the latest 
+                                                                               news in the striping industry</p>
+                                                                </div>
+                                                                <div class="col-xl-2 col-lg-12">
+                                                                       <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                                                                </div>
+                
+                                                            </div>
+                                                           
+                                                           
+                                                         </div>
+                                                        </div>
+                                                 </div>
+                                        </a>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                        <a href="#">
+                                                <div class="card">
+                                                        <div class="card-box">
+                                                             <div class="card-img">
+                                                                <%= image_tag("news3.jpg", alt: 'img5', class: "card-img-top" )%>
+                                                             </div>
+                                                         <div class="card-body">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-xl-10 col-lg-12">
+                                                                        <p>1-800-STRIPER has the latest 
+                                                                               news in the striping industry</p>
+                                                                </div>
+                                                                <div class="col-xl-2 col-lg-12">
+                                                                       <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                                                                </div>
+                
+                                                            </div>
+                                                           
+                                                           
+                                                         </div>
+                                                        </div>
+                                                 </div>
+                                        </a>
+                                </div>
+                                <div class="view-btn">
+                                        <a href="#" title="VIEW ALL NEWS" class="btn btn-lg btn-primary">VIEW ALL</a>
+                                </div>
+                            </div>
+                        </div>
+                       </div> 
+                </section>
+
+
+
+
+
+                <section id="gallery">
+                        <div class="container">
+                            <div class="row no-gutters">
+
+                                <div class="col-md-4">
+                                    <div class="gallery-img">
+                                        <a title="glr1" href="#">
+                                            <%= image_tag("gallery-img1.jpg", alt: 'glr1')%>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                        <div class="gallery-img">
+                                            <a title="glr2" href="#">
+                                                <%= image_tag("gallery-img2.jpg", alt: 'glr2')%>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                            <div class="gallery-img">
+                                                <a title="glr3" href="#">
+                                                     <%= image_tag("gallery-img3.jpg", alt: 'glr3')%>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                                <div class="gallery-img">
+                                                    <a title="glr4" href="#">
+                                                         <%= image_tag("gallery-img4.jpg", alt: 'glr4')%>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                    <div class="gallery-img">
+                                                        <a title="glr5" href="#">
+                                                            <%= image_tag("gallery-img5.jpg", alt: 'glr5')%>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                                <a href="javascript:void(0);" title="View Gallery" class="gallery-more">
+                                                                        
+                                                                        <p><i class="fas fa-arrow-circle-right"></i></p>
+                                                                        <h4>View More Gallery</h4>
+                                                                </a>
+                                                    </div>
+
+                                                    
+
+                            </div>
+                        </div>
+                </section>
+
+                <!-- FOOTER -->
+                
+                <%= render 'layouts/footer' %>    
+    
+
+
