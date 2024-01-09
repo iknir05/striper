@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     resources :menus
     resources :sliders
     resources :facilities
+    resources :jobs
+    resources :reviews
+    resources :news
+    resources :benefits
+    resources :galleries
+
   end
 
   delete '/logout', to: 'session#destroy'

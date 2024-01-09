@@ -1,0 +1,42 @@
+<div class="container">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Gallery Image</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+
+            <div class="form-horizontal">
+            <%= form_with model: @gallery, url: {action: @action},local: true do |form| %>   
+              <div class="box-body">
+
+                <div class="form-group">
+                  <%= form.label :gallery_image, class:"col-sm-2 control-label" %>
+                  <div class="col-sm-10">
+                    <%= form.file_field :gallery_image,:class => "form-control",placeholder:"Image"%>
+                    <% if @gallery.gallery_image? %>
+                        <%= image_tag @gallery.gallery_image.url(:thumb) %>
+                    <% end %>
+                    <% if @gallery.errors.any? %>
+                      <div id="error_explanation" >
+                        <ul class="field_with_errors">
+                          <% @gallery.errors.full_messages_for(:gallery_image).each do |msg| %>
+                            <li><%= msg %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <%= link_to 'Cancel', admin_galleries_path, class: "btn btn-default" %>
+                <%= form.submit class: "btn btn-info pull-right" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+</div>

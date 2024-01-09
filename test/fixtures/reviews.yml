@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  review_image: 
+  full_name: MyString
+  country: MyString
+  description: MyText
+
+two:
+  review_image: 
+  full_name: MyString
+  country: MyString
+  description: MyText

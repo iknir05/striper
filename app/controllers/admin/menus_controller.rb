@@ -36,7 +36,7 @@ class Admin::MenusController < ApplicationController
 	  		flash[:notice] = "New Menu item updated successfully"
 	  		redirect_to admin_menus_path
 	  	else
-	  		render 'new'
+	  		render 'edit'
 	  	end
 	  end
 
@@ -51,7 +51,7 @@ class Admin::MenusController < ApplicationController
 
 	  private
 
-	  	def menus_params()
+	  def menus_params()
 	  		params.require(:menu).permit(:title,:url)
-		end
+	end
 end
