@@ -1,0 +1,8 @@
+<% facilities = get_all_facilities%>
+
+                    <h3>Categories</h3>
+                    <ul>
+                        <%facilities.each do |facility|%>
+                        <li><a href="#" title="<%= facility.title%>"><%= facility.title%></a></li>
+                        <%end%>
+                    </ul>

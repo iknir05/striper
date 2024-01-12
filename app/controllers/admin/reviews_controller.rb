@@ -1,7 +1,7 @@
 class Admin::ReviewsController < ApplicationController
   layout 'admin'
-def index
-    @reviews = Review.all
+  def index
+  
   end
 
   def show

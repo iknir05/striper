@@ -8,20 +8,22 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"  crossorigin="anonymous"> 
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />    
+  </head>
 
-    <header id="header">
+  <header id="header">
     <div class="top-header">
         <%= render 'layouts/header' %>
     </div>
     <div class="header-bottom">
         <%= render 'layouts/navbar' %>
     </div>
-    
-    
-  </head>
+  </header>
 
   <body>
+    <% if flash[:notice] %>
+        <div class="alert alert-success alert-dismissible fade show"><%= flash[:notice] %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

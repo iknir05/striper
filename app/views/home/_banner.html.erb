@@ -1,5 +1,6 @@
+<% sliders = get_all_sliders %>
 <div id="owl-one" class="owl-carousel owl-theme ">
-            <% @sliders.each do |slider|%>
+            <% sliders.each do |slider|%>
             <div class="item">
             <div class="img-wrap">
                 <%#= image_tag("banner.jpg", alt: 'banner')%>
@@ -13,18 +14,5 @@
                 </div>
             </div>      
             </div>
-            <% end %>
-            <div class="item">
-            <div class="img-wrap">
-               <%= image_tag("banner.jpg", alt: 'banner2')%>
-                 
-                <div class="caption">
-                            <div class="container">
-                                <h2>1-800-Striper </h2>
-                            <p>Having a strong Consumer<br>  website presence</p>
-                            <a href="#" class="btn btn-primary no-radius">GET STARTED</a>
-                            </div>
-                </div>
-            </div>      
-            </div>      
-        </div>
+            <% end %>    
+</div>

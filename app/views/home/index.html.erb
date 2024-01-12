@@ -1,22 +1,30 @@
-                                 
+<% facilities = get_all_facilities%>
+<%jobs = get_all_jobs%>     
+<%reviews = get_all_reviews%>     
+<%news = get_all_news%>     
+<%benefits = get_all_benefits%>   
+<%galleries = get_all_galleries%>     
+
 <section id="banner">
         <%= render 'banner' %>
     
 <div id="parking-striping">
     <div class="container">
         <div class="parking-box">
-            <% @facilities.each do |facility| %>
+            <% facilities.each do |facility| %>
                 <p><span><i class="<%=facility.icon_class%>"></i></span> <%=facility.title%> </p>
             <%end%>
             <p><span><i class="fas fa-check"></i></span> Parking Lot Striping </p>
          
         </div>
     </div>
-</div>    
-    <%= render 'form' %>
+</div>
+<div class="form-wrapper">  
+    <div class="form-box home enquiry-form">
+        <%= render partial: 'form', locals: {enquiry: @enquiry}  %>
+    </div>
 </div>  
 </section>
-
 
     <section id="intro">
         <div class="container">
@@ -79,7 +87,7 @@
                     </div>
                     <div class="row">
                         <div id="owl-two" class="owl-carousel owl-theme pt-2">
-                            <% @jobs.each do |job|%>
+                            <% jobs.each do |job|%>
                                 <div class="item">
                                     <%= link_to job.url do %>                                           
                                         <div class="border">
@@ -112,7 +120,7 @@
                         </div>
 
                         <div class="row">
-                            <% @benefits.each do  |benefit|%>
+                            <% benefits.each do  |benefit|%>
                                 <div class="col-md-6">              
                                     <div class="media">
                                         <i class="<%=benefit.icon_class%>"></i>
@@ -144,7 +152,7 @@
                             </div>
 
                             <div id="owl-three" class="owl-carousel owl-theme">
-                                <% @reviews.each do |review|%>
+                                <% reviews.each do |review|%>
                                 <div class="item">
                                     <div class="testimonial-box">
                                         <span>
@@ -168,9 +176,6 @@
 
 
 
-
-
-
                 <section id="news">
                         <div class="news-bg">
                            <div class="container">
@@ -179,7 +184,7 @@
                             </div>
                             <div class="row">
                                     
-                                <% @news.each do |news|%>
+                                <% news.each do |news|%>
                                     <div class="col-md-4 col-sm-12">
                                          <%=link_to news.url do%>
                                                 <div class="card">
@@ -219,7 +224,7 @@
                 <section id="gallery">
                         <div class="container">
                             <div class="row no-gutters">
-                                <% @galleries.each do |gallery|%>    
+                                <% galleries.each do |gallery|%>    
                                 <div class="col-md-4">
                                     <div class="gallery-img">
                                         <a title="glr1" href="#">

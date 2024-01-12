@@ -1,3 +1,5 @@
+<%menus=get_all_menus%>
+<%blogs = get_all_blogs%>
 <footer id="footer">
                     <div class="container">
                         <div class="footer-bg">
@@ -7,72 +9,34 @@
 
                                     <div class="footer-box">
                                         <h3>RESENT POST</h3>
-
                                         <ul>
+                                            <% blogs.each do |blog|%>
                                             <li>
-                                                <a href="#">
-                                                    <span>Jan, 24th 2018</span>
+                                                <%=link_to "blog/#{blog.title}" do %>
+                                                    <span><%= format_date(blog.publish_date)%><%#= blog.publish_date %></span> 
+                                                    
                                                     <br>
-                                                    Better Nature For Better World  copy
-                                                </a>
+                                                    <%=blog.title[0,30]%>
+                                                <%end%>
                                             </li>
-                                            <li>
-                                                    <a href="#">
-                                                        <span>Jan, 24th 2018</span>
-                                                        <br>
-                                                        Better Nature For Better World  copy
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                        <a href="#">
-                                                            <span>Jan, 24th 2018</span>
-                                                            <br>
-                                                            Better Nature For Better World  copy
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                            <a href="#">
-                                                                <span>Jan, 24th 2018</span>
-                                                                <br>
-                                                                Better Nature For Better World  copy
-                                                            </a>
-                                                        </li>
+                                            <% end %>
                                         </ul>
-
                                     </div>
                                 </div>
-
 
                                 <div class="col-md-4">
 
                                         <div class="footer-box links">
                                         <h3>USEFUL LINKS</h3>
 
-                                            <ul>
-                                                <li>
-                                                    <a href="#">Home</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#">Service</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#">About</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#">FAQ</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#">Contact Us</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#">Request Estimate</a>
-                                                </li>
-                                            </ul>
+                                            <ul><% menus.each do |menu| %>
+                                                    <% if menu.menu_footer %>
+                                                        <li>
+                                                            <%= link_to menu.title.capitalize, menu.url%>
+                                                        </li>
+                                                    <%end%>
+                                                <%end%>
+                                           </ul>
 
                                         </div>
 

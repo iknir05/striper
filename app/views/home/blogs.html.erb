@@ -1,0 +1,137 @@
+<%blogs = get_all_blogs%> 
+
+   
+
+<section id="inner-banner" style="background-image: url(<%= asset_path 'about-banner.jpg'%>);">
+    <%#= image_tag("intro.jpg", alt: 'Intro')%>
+        <div class="inner-banner-bg">
+            <div class="container">
+                    <div class="text-center">
+                        <!--<h1>BLOG</h1>-->
+                    </div>
+            </div>
+        </div>
+</section>
+
+
+
+<section id="blog">
+
+    <div class="container">
+
+       <div class="row">
+
+           <div class="col-lg-8">
+					<div class="h1-heading">
+                        <h1>BLOG</h1>
+                    </div>
+
+                <!-- blog-box -->
+                <% blogs.each do |blog|%>
+                <div class="blog-box">                    
+                                
+                                <h3><%= blog.title%></h3>
+                    
+                                <div class="blog-date">
+                                    <p>
+                                        <span><i class="far fa-clock"></i></span>
+                                        <%=blog.publish_date%>
+                                        &nbsp; | &nbsp;
+                                        <span><i class="far fa-user"></i></span>
+                                        <%=blog.author%>
+                                    </p>
+                                </div>
+                                <div class="media">
+                                        <div class="media-img">
+                                            <%= image_tag blog.image.url, alt: 'Intro'%>
+                                        </div>
+                                            
+                                            <div class="media-body">
+                                              
+                                              <p>
+                                                    <%=blog.description[0,300]%>
+                                              </p>
+
+                                              <div class="row pt-3">
+
+                                                    <div class="col-md-5">
+                                                        <div class="blog-btn">
+                                                            
+                                                            <%= link_to "READ MORE", "blog/#{blog.title}", class:"btn btn-primary btn-sm no-radius"%>
+                                                            
+                                                        </div>
+                                                    </div>
+                        
+                                                    <div class="col-md-7">
+                                                        <div class="blog-social">
+                                                            <a href="#" title="Facebook"><%=image_tag "fb.png", alt:"fb"%></a>
+                                                            <a href="#" title="Twitter"><%=image_tag "tw.png", alt:"tw"%></a>
+                                                            <a href="#" title="Linkedin"><%=image_tag "in.png", alt:"in"%></a>
+                                                            <a href="#" title="Google plus"><%=image_tag "google.png", alt:"google"%></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                    </div>
+
+                </div>
+                <%end%>
+                <!-- blog-box -->
+
+ 
+                <div class="blog-pg">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+            </div>
+
+           
+
+           <div class="col-lg-4">
+                <div class="inner-form-box home enquiry-form">
+                    <%= render partial: 'form', locals: {enquiry: @enquiry}  %>
+                </div>
+
+                <div class="inner-parking-box">
+                    <%= render 'categories' %>
+                </div>
+                
+
+                <div class="archive-box">
+                        <h3>Archive</h3>
+                        <ul>
+                            <li><a href="#" title="March 2018">March 2018</a></li>
+                            <li><a href="#" title="February 2018">February 2018</a></li>
+                            <li><a href="#" title="Jaunuary 2018">Jaunuary 2018</a></li>
+                            <li><a href="#" title="Decemeber 2017">Decemeber 2017</a></li>
+                        </ul>
+                    </div>
+
+
+            </div>
+
+       </div>
+
+    </div>
+
+</section>
+
+
+               <%= render 'customer_reviews' %>  
+
+
+                <!-- FOOTER -->
+                
+                <%= render 'layouts/footer' %>    
+    

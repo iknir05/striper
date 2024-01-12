@@ -1,8 +1,12 @@
+<%menus=get_all_menus%>
+
 <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="logo">
-                        <a href="index.html"><%= image_tag("logo.png", alt:"STRIPER", title: "1-800-STRIPER")%>
+                        <%=link_to home_url do %>
+                            <%= image_tag("logo.png", alt:"STRIPER", title: "1-800-STRIPER")%> 
+                        <%end%>
                      </a>
                     </div>
                 </div>
@@ -16,9 +20,10 @@
                     
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="ml-auto">
-                                    <% @menus.each do |menu| %>
-                                    <li>
+                                    <% menus.each do |menu| %>
+                                    <li><% if menu.menu_header %>
                                         <%= link_to menu.title, menu.url%>
+                                        <%end%>
                                     </li>
                                     <%end%>                                                              
                                 </ul> 

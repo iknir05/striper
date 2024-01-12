@@ -1,7 +1,7 @@
 class Admin::FacilitiesController < ApplicationController
   layout 'admin'
   def index
-    @facilities = Facility.all
+ 
   end
 
   def show

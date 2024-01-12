@@ -1,7 +1,7 @@
 class Admin::MenusController < ApplicationController
 	  layout 'admin'
 	  def index
-	  	@menus = Menu.all	  	
+	  	
 	  end
 
 	  def show
@@ -31,7 +31,6 @@ class Admin::MenusController < ApplicationController
 
 	  def update
 	  	 @menu = Menu.find(params[:id])
-	  	
 	  	if @menu.update(menus_params)
 	  		flash[:notice] = "New Menu item updated successfully"
 	  		redirect_to admin_menus_path
@@ -52,6 +51,6 @@ class Admin::MenusController < ApplicationController
 	  private
 
 	  def menus_params()
-	  		params.require(:menu).permit(:title,:url)
+	  		params.require(:menu).permit(:title,:url,:menu_header,:menu_footer)
 	end
 end

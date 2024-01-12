@@ -15,8 +15,18 @@ Rails.application.routes.draw do
     resources :news
     resources :benefits
     resources :galleries
-
+    resources :blogs
+    get '/enquiries', to: 'enquiries#index'
   end
+
+  
+  post 'create_enquiry', to: 'home#create'
+  
+  get 'home', to: 'home#index'
+  get '/blogs', to: 'home#blogs'
+  get '/blog/:title', to: 'home#blog_details'
+
+
 
   delete '/logout', to: 'session#destroy'
   get 'session/index'

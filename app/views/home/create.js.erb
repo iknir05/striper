@@ -1,0 +1,5 @@
+<% if @enquiry.errors.any? %>
+	$(".enquiry-form").html("<%= escape_javascript render(:partial => 'home/form', :locals => {:enquiry => @enquiry}) %>");
+<%else%>
+	$(".ajax-alert").html("<%= @msg %>");
+<%end%>

@@ -10,29 +10,31 @@
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
-
-    <% if session[:user_id].present? %>
+  
+  <% if session[:user_id].present? %>
       <body class="hold-transition skin-blue sidebar-mini">
-    <% else %>
+         <div class="wrapper">
+            <!-- header navbar -->
+            <%= render 'layouts/admin_navbar' %>
+            <!-- Left side column. contains the logo and sidebar -->
+            <%= render 'layouts/admin_sidebar' %>
+            <div class="content-wrapper">
+  <% else %>
       <body class="hold-transition login-page">
-    <%end%>  
-    <div class="wrapper">
-       <!-- header navbar -->
-      <%= render 'layouts/admin_navbar' %>
+  <%end%>  
+            
+         <%= yield %>
 
-      <!-- Left side column. contains the logo and sidebar -->
-      <%= render 'layouts/admin_sidebar' %>
-
-      <div class="content-wrapper">
-        <%= yield %>
-      </div>
-
-       <!-- /.content-wrapper -->
-       <%= render 'layouts/admin_footer' %>
-       <%= render 'layouts/admin_right_sidebar' %>  
-
-    </div>
+           <!-- /.content-wrapper -->
+          <% if session[:user_id].present? %>
+               </div>
+                <%= render 'layouts/admin_footer' %>
+                <%= render 'layouts/admin_right_sidebar' %>  
+          </div>
+        <% end%>
+        
   </body>
 </html>
 

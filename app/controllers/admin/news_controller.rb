@@ -1,7 +1,7 @@
 class Admin::NewsController < ApplicationController
   layout 'admin'
-def index
-    @news = News.all
+  def index
+
   end
 
   def show

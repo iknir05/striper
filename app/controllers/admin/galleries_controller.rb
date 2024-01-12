@@ -2,7 +2,7 @@ class Admin::GalleriesController < ApplicationController
   layout 'admin'
   
   def index
-    @galleries = Gallery.all
+
   end
 
   def show

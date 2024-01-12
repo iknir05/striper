@@ -1,0 +1,151 @@
+<div class="container">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">New Blogs</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+
+            <div class="form-horizontal">
+            <%= form_with model: @blog, url: {action: @action},local: true do |form| %>   
+              <div class="box-body">
+
+                <div class="form-group">
+                  <%= form.label :image, class:"col-sm-2 control-label" %>
+                  <div class="col-sm-10">
+                    <%= form.file_field :image,:class => "form-control",placeholder:"Image"%>
+                    <% if @blog.image? %>
+                        <%= image_tag @blog.image.url(:thumb) %>
+                    <% end %>
+                    <% if @blog.errors.any? %>
+                      <div id="error_explanation" >
+                        <ul class="field_with_errors">
+                          <% @blog.errors.full_messages_for(:image).each do |msg| %>
+                            <li><%= msg %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= form.label :title, class:"col-sm-2 control-label" %>
+                  <div class="col-sm-10">
+                    <%= form.text_field :title,:class => "form-control",placeholder:"Title", id:"title"%>
+                    <% if @blog.errors.any? %>
+                      <div id="error_explanation" >
+                        <ul class="field_with_errors">
+                          <% @blog.errors.full_messages_for(:title).each do |msg| %>
+                            <li><%= msg %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= form.label :slug, class:"col-sm-2 control-label" %>
+                  <div class="col-sm-10">
+                    <%= form.text_field :slug,:class => "form-control",placeholder:"Title", readonly: true, id:"slug" %>
+                    <% if @blog.errors.any? %>
+                      <div id="error_explanation" >
+                        <ul class="field_with_errors">
+                          <% @blog.errors.full_messages_for(:slug).each do |msg| %>
+                            <li><%= msg %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= form.label :publish_date, class:"col-sm-2 control-label" %>
+                  <div class="col-sm-10">
+                    <%= form.text_field :publish_date,:class => "form-control",placeholder:"Publish Date"%>
+                    <% if @blog.errors.any? %>
+                      <div id="error_explanation" >
+                        <ul class="field_with_errors">
+                          <% @blog.errors.full_messages_for(:publish_date).each do |msg| %>
+                            <li><%= msg %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <%= form.label :author, class:"col-sm-2 control-label" %>
+                  <div class="col-sm-10">
+                    <%= form.text_field :author,:class => "form-control",placeholder:"Author Name"%>
+                    <% if @blog.errors.any? %>
+                      <div id="error_explanation" >
+                        <ul class="field_with_errors">
+                          <% @blog.errors.full_messages_for(:author).each do |msg| %>
+                            <li><%= msg %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= form.label :description, class:"col-sm-2 control-label" %>
+                  <div class="col-sm-10">
+                    <%= form.text_area :description,:class => "form-control",placeholder:"Description"%>
+                    <% if @blog.errors.any? %>
+                      <div id="error_explanation" >
+                        <ul class="field_with_errors">
+                          <% @blog.errors.full_messages_for(:description).each do |msg| %>
+                            <li><%= msg %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+
+
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <%= link_to 'Cancel', admin_blogs_path, class: "btn btn-default" %>
+                <%= form.submit class: "btn btn-info pull-right" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+
+    var $initial_slug =  slugify($("#title").val());  
+    $("#slug").val($initial_slug);
+
+    $("#title").on("keyup",function() {
+        var Text = slugify($(this).val());
+        $("#slug").val(Text); 
+    });
+
+
+    function slugify(text){
+      return text.toString().toLowerCase()
+                  .replace(/\s+/g, '-')           // Replace spaces with -
+                  .replace(/[^\u0100-\uFFFF\w\-]/g,'-') // Remove all non-word chars ( fix for UTF-8 chars )
+                  .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+                  .replace(/^-+/, '')             // Trim - from start of text
+                  .replace(/-+$/, '');            // Trim - from end of text
+
+    }
+
+
+
+  });
+</script>

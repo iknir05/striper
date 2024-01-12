@@ -1,4 +1,6 @@
+<% news = get_all_news %>
 <div class="box">
+  <%= will_paginate news %>
             <div class="box-header row">
               <div class="col-md-6">
                 <h3 class="box-title">News</h3>
@@ -17,7 +19,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% @news.each do |news| %>
+                <% news.each do |news| %>
                 <tr>
                   <td><%= news.description %></td>
                   <td><%= link_to '<i class="fa fa-eye"></i>'.html_safe, admin_news_path(news.id) %></td>

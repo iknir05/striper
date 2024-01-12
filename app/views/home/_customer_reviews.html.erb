@@ -1,0 +1,31 @@
+ <%reviews = get_all_reviews%>   
+               <section id="testimonial">
+                    <div class="testimonial-bg">
+                        <div class="container">
+                            <div class="section-title mb-5">
+                                <h2>Customer Reviews</h2>
+                            </div>
+
+                            <div id="owl-three" class="owl-carousel owl-theme">
+                                <% reviews.each do |review|%>
+                                <div class="item">
+                                    <div class="testimonial-box">
+                                        <span>
+                                            <div class="testimonial-img">
+                                            <%= image_tag review.review_image.url,alt: review.full_name%>
+                                            </div>
+                                        </span>
+                                        <span>
+                                            <div class="testimonial-text">
+                                                <p><%=review.description%></p>
+                                                <h6><%=review.full_name%>,<%=review.country%></h6>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+

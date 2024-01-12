@@ -2,7 +2,7 @@ class Admin::BenefitsController < ApplicationController
 	layout 'admin'
 
   def index
-    @benefits = Benefit.all
+
   end
 
   def show

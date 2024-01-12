@@ -2,7 +2,7 @@ class Admin::SlidersController < ApplicationController
   layout 'admin'
   
   def index
-     @sliders = Slider.all
+   
   end
 
   def show

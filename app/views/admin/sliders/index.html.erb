@@ -1,4 +1,7 @@
+<% sliders = get_all_sliders %>
 <div class="box">
+    <%= will_paginate sliders %>
+
             <div class="box-header row">
               <div class="col-md-6">
                 <h3 class="box-title">Sliders</h3>
@@ -17,7 +20,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% @sliders.each do |slider| %>
+                <% sliders.each do |slider| %>
                 <tr>
                   <td><%= slider.title %></td>
                   <td><%= link_to '<i class="fa fa-eye"></i>'.html_safe, admin_slider_path(slider.id) %></td>

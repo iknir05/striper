@@ -1,0 +1,172 @@
+
+
+<section id="inner-banner" style="background-image: url(<%= asset_path 'about-banner.jpg' %>);">
+        <div class="inner-banner-bg">
+            <div class="container">
+                    <div class="text-center">
+                        <!--<h1>BLOG</h1>-->
+                    </div>
+            </div>
+        </div>
+</section>
+
+
+
+<section id="blog-details">
+
+    <div class="container">
+
+       <div class="row">
+	   <div class="h1-heading">
+       </div>
+
+           <div class="col-lg-8">
+                <h1>BLOG</h1>
+                <div class="blog-details-text">
+                
+                    <h3><%= @blog.title%></h3>
+                    
+                    <div class="blog-date">
+                        <p>
+                            <span><i class="far fa-clock"></i></span>
+                            <%= @blog.publish_date%>
+                            &nbsp; | &nbsp;
+                            <span><i class="far fa-user"></i></span>
+                            <%=@blog.author%>
+                        </p>
+                    </div>
+
+                        <p>
+                            <%= image_tag @blog.image.url, alt: 'Intro'%>
+                        </p>
+
+                        <p>
+                            <%=@blog.description%>
+                        </p>
+
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
+                            has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                            printer took a galley of type and scrambled it to make a type specimen book. 
+                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                        
+                        <h3>
+                            H3 Heading Goes Here
+                        </h3>
+        
+                        <P>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                        </P>
+                        
+                        <h6>Experience the difference:</h6>
+
+                        <div class="intro-text">
+
+                            <ul>
+                                <li>
+                                        Fast Response times guaranteed
+                                </li>
+                                <li>
+                                        State of the Art Equipment
+                                </li>
+                                <li>
+                                        Professional Clean Trucks
+                                </li>
+                                <li>
+                                        Friendly and Courteous Staff
+                                </li>
+                            </ul>
+
+                        </div>
+        
+                        <h4>
+                            H4 Heading Goes Here
+                        </h4>
+        
+                        <P>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                        </P>
+
+                        <h6>Experience the difference:</h6>
+
+                        <div class="intro-text">
+
+                            <ul>
+                                <li>
+                                        Fast Response times guaranteed
+                                </li>
+                                <li>
+                                        State of the Art Equipment
+                                </li>
+                                <li>
+                                        Professional Clean Trucks
+                                </li>
+                                <li>
+                                        Friendly and Courteous Staff
+                                </li>
+                            </ul>
+
+                        </div>
+                        
+                        <div class="row pt-4">
+
+                            <div class="col-md-6">
+                                <div class="blog-btn">
+                                    <%= link_to 'BACK', blogs_path,class:"btn btn-primary no-radius" %>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="blog-social">
+                                        <a href="#" title="Facebook"><%=image_tag "fb.png", alt:"fb"%></a>
+                                        <a href="#" title="Twitter"><%=image_tag "tw.png", alt:"tw"%></a>
+                                        <a href="#" title="Linkedin"><%=image_tag "in.png", alt:"in"%></a>
+                                        <a href="#" title="Google plus"><%=image_tag "google.png", alt:"google"%></a>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+    
+            </div>
+
+           
+
+           <div class="col-lg-4">
+                <div class="inner-form-box home enquiry-form">
+                    <%= render partial: 'form', locals: {enquiry: @enquiry}  %>
+                </div>
+
+                <div class="inner-parking-box">
+                    <%= render 'categories' %>
+                </div>
+                
+
+                <div class="archive-box">
+                        <h3>Archive</h3>
+                        <ul>
+                            <li><a href="#" title="March 2018">March 2018</a></li>
+                            <li><a href="#" title="February 2018">February 2018</a></li>
+                            <li><a href="#" title="Jaunuary 2018">Jaunuary 2018</a></li>
+                            <li><a href="#" title="Decemeber 2017">Decemeber 2017</a></li>
+                        </ul>
+                    </div>
+
+
+            </div>
+
+       </div>
+
+    </div>
+
+</section>
+
+
+
+               <%= render 'customer_reviews' %> 
+
+
+                <!-- FOOTER -->
+                
+                <%= render 'layouts/footer' %>   
