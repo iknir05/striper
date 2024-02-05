@@ -1,11 +1,11 @@
-<%= form_with model: @user, url: admin_login_path,local: true do |form| %>  
+<%= form_with model: @admin, url: admin_login_path,local: true do |form| %>  
       <div class="form-group has-feedback">
         <%= form.text_field :email,:class => "form-control",:placeholder => "Email"%>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            <% if @user.errors.any? %>
+            <% if @admin.errors.any? %>
             <div id="error_explanation" >
               <ul class="field_with_errors">
-                <% @user.errors.full_messages_for(:email).each do |msg| %>
+                <% @admin.errors.full_messages_for(:email).each do |msg| %>
                   <li><%= msg %></li>
                 <% end %>
               </ul>
@@ -15,10 +15,10 @@
       <div class="form-group has-feedback">
         <%= form.password_field :password,:class => "form-control",:placeholder => "Password"%>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        <% if @user.errors.any? %>
+        <% if @admin.errors.any? %>
           <div id="error_explanation" >
             <ul class="field_with_errors">
-              <% @user.errors.full_messages_for(:email).each do |msg| %>
+              <% @admin.errors.full_messages_for(:password).each do |msg| %>
                 <li><%= msg %></li>
               <% end %>
             </ul>

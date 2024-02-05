@@ -1,0 +1,19 @@
+<% like_count  = blog_likes_count(blog_id,"like")%>
+<% unlike_count  = blog_likes_count(blog_id,"unlike")%>
+
+<div class="col-md-6">
+  <%= link_to blog_status(blog_id),blog_like_path(blog_id: blog_id, user_id: current_user.id),class:"btn btn-primary btn-sm no-radius" , remote: true%> 
+</div>
+<div class="col-md-6">
+    <% if like_count > 0%>
+    <div class="like-count" value="<%=blog_id%>">
+        <%= like_count%> Likes
+    </div>
+    <% end %>
+
+    <% if unlike_count > 0%>
+    <div class="unlike-count" value="<%=blog_id%>">
+        <%= unlike_count%> Unlikes
+    </div>
+    <% end %>                                                    
+</div>  

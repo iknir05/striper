@@ -1,8 +1,8 @@
-class Admin::SlidersController < ApplicationController
-  layout 'admin'
+class Admin::SlidersController < AdminController
+
   
   def index
-   
+    @sliders = Slider.paginate(page: params[:page], per_page: 10).order("created_at ASC")
   end
 
   def show
@@ -47,6 +47,21 @@ class Admin::SlidersController < ApplicationController
           flash[:notice] = "Slider has been successfully deleted"
         end 
         redirect_to admin_sliders_path
+  end
+
+  def search_filter
+      @sliders = Slider.all
+
+      if params[:search].present?
+        @sliders = @sliders.where("title like (?) or description like (?) or button_title like (?) or button_url like (?)", "%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%")
+      end  
+
+      @sliders = @sliders.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+
+      respond_to do |format|
+        format.js 
+      end
+
   end
 
   private

@@ -1,50 +1,19 @@
-<% enquiries = get_all_enquiries %>
-
 <div class="box">
-  <%= will_paginate enquiries %>
+
             <div class="box-header row">
               <div class="col-md-6">
                 <h3 class="box-title">Enquiries</h3>
               </div>
-              <div class="col-md-3">
-                <h3 class="box-title">Search box</h3>
-              </div>
-              <div class="col-md-3">
-                <h3 class="box-title">State</h3>
-                <%#= select("State", "enquiry_id", Enquiry.distinct.pluck(:state).collect {|e| [ e.state] }, {include_blank: true}) %>
-                <%= select("State", "enquiry_id", Enquiry.select('distinct state').collect {|e| [ e.state, e.id] }, {include_blank: true}) %>
+              <div class="col-md-6">
+                <%= render 'search_form'%>
               </div>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Email</th>
-                  <th>Phone Number</th>
-                  <th>Zip Code</th>
-                  <th>City</th>
-                  <th>State</th>
-                  <th>Created On</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% enquiries.each do |enquiry| %>
-                <tr>
-                  <td><%= enquiry.first_name %></td>
-                  <td><%= enquiry.last_name %></td>
-                  <td><%= enquiry.email %></td>
-                  <td><%= enquiry.phone_number %></td>
-                  <td><%= enquiry.zip_code %></td>
-                  <td><%= enquiry.city %></td>
-                  <td><%= enquiry.state %></td>
-                  <td><%= format_date(enquiry.created_at) %></td>
-                </tr>
-                <% end %>
-              </table>
+            <div class="box-body enquiry-data">
+              <%= render partial: 'enquiry_data', locals: {enquiries: @enquiries}%>
               <br>
               <%= link_to 'Back', admin_home_path, class: "btn btn-default" %>
+              <%= will_paginate @enquiries , style:"float:right";%>
             </div>
+
 </div>

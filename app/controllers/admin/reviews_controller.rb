@@ -1,7 +1,22 @@
-class Admin::ReviewsController < ApplicationController
-  layout 'admin'
+class Admin::ReviewsController < AdminController
+
   def index
-  
+    @reviews = Review.paginate(page: params[:page], per_page: 10).order("created_at ASC")
+  end
+
+  def search_filter
+      @reviews = Review.all
+
+      if params[:search].present?
+        @reviews = @reviews.where("full_name like (?) or country like (?)or description like (?)", "%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%")
+      end  
+
+      @reviews = @reviews.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+
+      respond_to do |format|
+        format.js 
+      end
+
   end
 
   def show

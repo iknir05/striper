@@ -1,40 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Admin</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Admin</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload' %>
-    
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  </head>
-  
-  <% if session[:user_id].present? %>
-      <body class="hold-transition skin-blue sidebar-mini">
-         <div class="wrapper">
-            <!-- header navbar -->
-            <%= render 'layouts/admin_navbar' %>
-            <!-- Left side column. contains the logo and sidebar -->
-            <%= render 'layouts/admin_sidebar' %>
-            <div class="content-wrapper">
-  <% else %>
-      <body class="hold-transition login-page">
-  <%end%>  
-            
-         <%= yield %>
+  <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload' %>
 
-           <!-- /.content-wrapper -->
-          <% if session[:user_id].present? %>
-               </div>
-                <%= render 'layouts/admin_footer' %>
-                <%= render 'layouts/admin_right_sidebar' %>  
-          </div>
-        <% end%>
-        
-  </body>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- ADDED FOR DATEPICKER-->
+  <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' 
+  rel='stylesheet'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <!-- ADDED FOR DATEPICKER-->
+
+</head>
+
+
+<% if session[:admin_id].present? %>
+  <body class="hold-transition skin-blue sidebar-mini">
+   <div class="wrapper">
+    <!-- header navbar -->
+    <%= render 'layouts/admin_navbar' %>
+    <!-- Left side column. contains the logo and sidebar -->
+    <%= render 'layouts/admin_sidebar' %>
+    <div class="content-wrapper">
+<% else %>
+    <body class="hold-transition login-page">
+<%end%>  
+      
+      <% if flash[:notice] %>
+      <div class="alert alert-success alert-dismissible"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+      <div class="alert alert-success alert-dismissible"><%= flash[:alert] %></div>
+      <% end %>
+
+
+      <%= yield %>
+
+      <!-- /.content-wrapper -->
+      <% if session[:admin_id].present? %>
+    </div>
+    <%= render 'layouts/admin_footer' %>
+    <%= render 'layouts/admin_right_sidebar' %>  
+  </div>
+  <% end%>
+
+</body>
 </html>
 
+<script>  
+  $(document).ready(function () {
+    console.log("log 1");
+      $(".notifications-menu").on("click",function() {
+        console.log("log 2");
+          $.ajax({
+            url: '/admin/notifications_reset',
+            type: "GET",
+            success: function(data) {
+              console.log('success');
+              $(".bell-count").html("");
+            }
+         });      
+      }); 
+  }); 
+  
+</script>  
+  

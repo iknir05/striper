@@ -4,4 +4,6 @@ class Enquiry < ApplicationRecord
 	validates :phone_number, presence: true, :numericality => true
 	validates :zip_code, presence: true, :numericality => true
 	validates :city,:state, presence: true
+
+
 end

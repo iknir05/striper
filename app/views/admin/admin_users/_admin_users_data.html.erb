@@ -1,0 +1,20 @@
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Admin Users</th>
+                  <th colspan="3">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% admins.each do |admin| %>
+                <tr>
+                  <td><%= admin.first_name %> <%= admin.last_name %></td>
+                  <% if filter_status != "1" %>
+                    <td><%= link_to '<i class="fa fa-check"></i>'.html_safe, admin_confirm_path(id:admin.id, status: true,filter_status: filter_status), class:"admin-confirm",remote:true%></td>
+                  <% end  %>
+                  <% if filter_status != "0" %>
+                  <td><%= link_to '<i class="fa fa-remove"></i>'.html_safe, admin_confirm_path(id:admin.id, status: false,filter_status: filter_status),class:"admin-confirm",remote:true %></td>
+                  <% end %>
+                </tr>
+                <% end %>
+              </table>

@@ -1,0 +1,105 @@
+<%= form_with model: @admin, url: admin_signup_path,local: true do |form| %>  
+
+      <div class="form-group has-feedback">
+        <%= form.text_field :first_name,:class => "form-control",:placeholder => "First Name"%>
+            <% if @admin.errors.any? %>
+            <div id="error_explanation" >
+              <ul class="field_with_errors">
+                <% @admin.errors.full_messages_for(:first_name).each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= form.text_field :last_name,:class => "form-control",:placeholder => "Last Name"%>
+            <% if @admin.errors.any? %>
+            <div id="error_explanation" >
+              <ul class="field_with_errors">
+                <% @admin.errors.full_messages_for(:last_name).each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= form.text_field :phone_number,:class => "form-control",:placeholder => "Phone Number"%>
+            <% if @admin.errors.any? %>
+            <div id="error_explanation" >
+              <ul class="field_with_errors">
+                <% @admin.errors.full_messages_for(:phone_number).each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= form.text_field :email,:class => "form-control",:placeholder => "Email"%>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <% if @admin.errors.any? %>
+            <div id="error_explanation" >
+              <ul class="field_with_errors">
+                <% @admin.errors.full_messages_for(:email).each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+      </div>      
+
+      <div class="form-group has-feedback">
+        <%= form.password_field :password,:class => "form-control",:placeholder => "Password"%>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <% if @admin.errors.any? %>
+          <div id="error_explanation" >
+            <ul class="field_with_errors">
+              <% @admin.errors.full_messages_for(:password).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= form.password_field :password_confirmation,:class => "form-control",:placeholder => "Confirm Password"%>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <% if @admin.errors.any? %>
+          <div id="error_explanation" >
+            <ul class="field_with_errors">
+              <% @admin.errors.full_messages_for(:password_confirmation).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+
+
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="checkbox icheck">
+            <label>
+              <input type="checkbox"> Remember Me
+            </label>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="checkbox icheck">
+            <%= form.check_box :role, value:"superadmin" %>
+            <%= form.label :role, "Super Admin" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+             <%= form.submit value="Sign Up", :class => "btn btn-primary btn-block btn-flat"%>
+          </div>
+        </div>
+      </div>
+<% end %>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload' %>
+    
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- for devise veiws -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+  </head>
+  
+  <% if session[:admin_id].present? %>
+      <body class="hold-transition skin-blue sidebar-mini">
+         <div class="wrapper">
+            <!-- header navbar -->
+            <%= render 'layouts/admin_navbar' %>
+            <!-- Left side column. contains the logo and sidebar -->
+            <%= render 'layouts/admin_sidebar' %>
+            <div class="content-wrapper">
+  <% else %>
+      <body class="hold-transition login-page">
+  <%end%>  
+            
+         <%= yield %>
+
+           <!-- /.content-wrapper -->
+          <% if session[:admin_id].present? %>
+               </div>
+                <%= render 'layouts/admin_footer' %>
+                <%= render 'layouts/admin_right_sidebar' %>  
+          </div>
+        <% end%>
+        
+  </body>
+</html>
+

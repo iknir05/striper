@@ -1,0 +1,125 @@
+
+<section id="inner-banner" style="background-image: url(<%= asset_path 'services-banner.jpg'%>);">
+        <div class="inner-banner-bg">
+            <div class="container">
+                    <div class="text-center">
+                        <h1>SERVICES</h1>
+                    </div>
+            </div>
+        </div>
+</section>
+
+
+
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8">
+                     <div class="h1-heading">
+                        <h1>SERVICES</h1>
+                    </div>
+                   <div class="services-box">
+                        <h2>Everything runs smoother</h2>
+                        <p>1-800-STRIPER is a full-service parking lot and roadway striping company. Since 1999, we have provided superior service at competitive prices. Our franchisees have the experience and knowledge to complete any job to your satisfaction.</p>
+                   </div>
+                   
+                   <div class="row">
+
+                        <div class="col-md-6">
+                                <div class="mb-4">
+                                        <a href="#">
+                                                <div class="services-border">
+                                                    <div class="services-img">
+                                                        <%= image_tag("featured-img.jpg", alt: 'Img1')%>
+                                                    </div>
+                                                    <div class="services-caption">
+                                                            <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                        </div>
+                                                  </div> 
+                                                  
+                                        </a>
+                                </div>
+                        </div>
+
+                        <div class="col-md-6">
+                                <div class="mb-4">
+                                        <a href="#">
+                                                <div class="services-border">
+                                                    <div class="services-img">
+                                                        <%= image_tag("featured-img1.jpg", alt: 'Img2')%>                                                        
+                                                    </div>
+                                                    <div class="services-caption">
+                                                            <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                        </div>
+                                                  </div> 
+                                                  
+                                            </a>
+                                </div>
+                        </div>
+                   
+                       
+                        <div class="col-md-6">
+                                <div class="mb-4">
+                                        <a href="#">
+                                                <div class="services-border">
+                                                    <div class="services-img">
+                                                        <%= image_tag("services1.jpg", alt: 'Img4')%>
+                                                    </div>
+                                                    <div class="services-caption">
+                                                            <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                        </div>
+                                                  </div> 
+                                                  
+                                        </a>
+                                </div>
+                        </div>
+
+                        <div class="col-md-6">
+                                <div class="mb-4">
+                                        <a href="#">
+                                                <div class="services-border">
+                                                    <div class="services-img">
+                                                        <%= image_tag("services2.jpg", alt: 'Img4')%>
+                                                    </div>
+                                                    <div class="services-caption">
+                                                            <h4>Lorem Ipsum is simply <i class="fas fa-arrow-right"></i></h4>
+                                                        </div>
+                                                  </div> 
+                                                  
+                                            </a>
+                                </div>
+                        </div>
+                   </div>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <div class="inner-form-box home enquiry-form">
+                        <%= render partial: 'form', locals: {enquiry: @enquiry}  %>
+                    </div>
+
+                    <div class="inner-parking-box">
+                        <%= render 'categories' %>
+                    </div> 
+
+
+                </div>
+                
+                   
+
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </section>
+
+    <%= render 'customer_reviews' %>  
+
+    <!-- FOOTER -->
+                
+    <%= render 'layouts/footer' %>    
+    
+

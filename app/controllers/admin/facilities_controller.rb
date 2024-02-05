@@ -1,7 +1,22 @@
-class Admin::FacilitiesController < ApplicationController
-  layout 'admin'
+class Admin::FacilitiesController < AdminController
+
   def index
- 
+    @facilities = Facility.paginate(page: params[:page], per_page: 10).order("created_at ASC")
+  end
+
+  def search_filter
+      @facilities = Facility.all
+
+      if params[:search].present?
+        @facilities = @facilities.where("title like (?)", "%#{params[:search]}%")
+      end  
+
+      @facilities = @facilities.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+
+      respond_to do |format|
+        format.js 
+      end
+
   end
 
   def show

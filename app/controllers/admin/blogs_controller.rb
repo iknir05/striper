@@ -1,8 +1,23 @@
-class Admin::BlogsController < ApplicationController
-	layout 'admin'
+class Admin::BlogsController < AdminController
+
   def index
-  
+    @blogs = Blog.paginate(page: params[:page], per_page: 10).order("created_at ASC")
   end
+
+  def search_filter
+      @blogs = Blog.all
+
+      if params[:search].present?
+        @blogs = @blogs.where("title like (?) or description like (?) or publish_date like (?)or author like (?)or slug like (?)", "%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%")
+      end  
+
+      @blogs = @blogs.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+
+      respond_to do |format|
+        format.js 
+      end
+
+  end  
 
   def show
     @blog = Blog.find(params[:id])

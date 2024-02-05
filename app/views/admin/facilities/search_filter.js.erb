@@ -1,0 +1,3 @@
+<%if params[:search].present? %>
+	$(".facility-data").html("<%= escape_javascript render(:partial => 'facility_data', locals: {facilities: @facilities}) %>");
+<%end%>

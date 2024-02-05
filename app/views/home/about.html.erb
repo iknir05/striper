@@ -1,2 +1,86 @@
-<h1>Home#about</h1>
-<p>Find me in app/views/home/about.html.erb</p>
+
+
+<section id="inner-banner" style="background-image: url(<%= asset_path 'about-banner.jpg'%>);">
+        <div class="inner-banner-bg">
+            <div class="container">
+                    <div class="text-center">
+                        <!--<h1>ABOUT US</h1>-->
+                    </div>
+            </div>
+        </div>
+</section>
+
+
+
+
+    <section id="intro">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8">
+				<div class="h1-heading">
+                        <h1>ABOUT US</h1>
+                    </div>
+                    <div class="intro-text">
+                        <h2>
+                            H2 Heading Goes Here
+                        </h2>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
+                            has been the industry's standard dummy text ever since the 1500s, when an unknown 
+                            printer took a galley of type and scrambled it to make a type specimen book. 
+                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                        <div class="mb-4">
+                            <img src="images/about.jpg" alt="">
+                        </div>
+                        
+
+                        <h3>
+                            H3 Heading Goes Here
+                        </h3>
+
+                        <P>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                        </P>
+                        <h6>Experience the difference:</h6>
+                        <ul>
+                            <li>
+                                    Fast Response times guaranteed
+                            </li>
+                            <li>
+                                    State of the Art Equipment
+                            </li>
+                            <li>
+                                    Professional Clean Trucks
+                            </li>
+                            <li>
+                                    Friendly and Courteous Staff
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="inner-form-box home enquiry-form">
+                        <%= render partial: 'form', locals: {enquiry: @enquiry}  %>
+                    </div>
+
+                    <div class="inner-parking-box">
+                        <%= render 'categories' %>
+                    </div>           
+                </div>                                
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </section>
+
+
+
+    <%= render 'customer_reviews' %>  
+
+    <!-- FOOTER -->
+                
+    <%= render 'layouts/footer' %>    
+    

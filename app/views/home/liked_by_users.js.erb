@@ -1,0 +1,3 @@
+
+$("#modal_wrapper").html("<%= escape_javascript render(:partial => 'like_modal', locals:{blog_id: @blog_id}) %>");
+$("#like_modal").modal('show');

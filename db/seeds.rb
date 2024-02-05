@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# current_count = Admin.all.count + 1
+current_count =  1
+20.times do 
+	puts " #{current_count}"
+	user = Admin.find_or_create_by(
+		first_name: "User #{current_count}",
+		last_name: "Igotsar",
+		phone_number: 111111,
+		email:"a#{current_count}@gmail.com",
+		is_admin_approved: true,
+		role: "admin",
+		password: '1234',
+		password_confirmation: '1234'
+		)
+	current_count +=1
+end

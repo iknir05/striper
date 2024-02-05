@@ -1,6 +1,21 @@
-class Admin::NewsController < ApplicationController
-  layout 'admin'
+class Admin::NewsController < AdminController
+
   def index
+    @news = News.paginate(page: params[:page], per_page: 10).order("created_at ASC")
+  end
+
+  def search_filter
+      @news = News.all
+
+      if params[:search].present?
+        @news = @news.where("description like (?) or url like (?)", "%#{params[:search]}%","%#{params[:search]}%")
+      end  
+
+      @news = @news.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+
+      respond_to do |format|
+        format.js 
+      end
 
   end
 

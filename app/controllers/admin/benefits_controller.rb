@@ -1,8 +1,22 @@
-class Admin::BenefitsController < ApplicationController
-	layout 'admin'
+class Admin::BenefitsController < AdminController
+	
 
   def index
+    @benefits = Benefit.paginate(page: params[:page], per_page: 10).order("created_at ASC")
+  end
 
+  def search_filter
+      @benefits = Benefit.all
+
+      if params[:search].present?
+        @benefits = @benefits.where("title like (?) or description like (?)", "%#{params[:search]}%","%#{params[:search]}%")
+      end  
+
+      @benefits = @benefits.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+
+      respond_to do |format|
+        format.js 
+      end
   end
 
   def show

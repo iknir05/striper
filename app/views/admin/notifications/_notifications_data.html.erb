@@ -1,0 +1,15 @@
+ <% notifications = get_all_notifications %>
+ 
+ <% notifications.each do |notification|%>
+ <div class="box-header with-border">
+  <h3 class="box-title"><%= link_to (get_notification_url(notification.category)) do%>
+    <i class="<%= get_notification_icon(notification.category)%>"></i> <%=get_notification_description(notification)%>
+    <% end %></h3>
+    <div class="box-tools pull-right">
+      <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"> -->
+        <%= link_to(admin_notification_path(notification.id),method: :delete, remote: true) do%>
+        <i class="fa fa-times"></i></button>
+        <% end %>             
+      </div>
+    </div>
+    <% end %>

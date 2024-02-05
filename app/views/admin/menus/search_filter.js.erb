@@ -1,0 +1,3 @@
+<%if params[:search].present? %>
+	$(".menu-data").html("<%= escape_javascript render(:partial => 'menu_data', locals: {menus: @menus}) %>");
+<%end%>

@@ -1,6 +1,21 @@
-class Admin::JobsController < ApplicationController
-  layout 'admin'
+class Admin::JobsController < AdminController
+
   def index
+    @jobs = Job.paginate(page: params[:page], per_page: 10).order("created_at ASC")
+  end
+
+  def search_filter
+      @jobs = Job.all
+
+      if params[:search].present?
+        @jobs = @jobs.where("title like (?) or url like (?)", "%#{params[:search]}%","%#{params[:search]}%")
+      end  
+
+      @jobs = @jobs.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+
+      respond_to do |format|
+        format.js 
+      end
 
   end
 

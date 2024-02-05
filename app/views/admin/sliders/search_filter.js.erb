@@ -1,0 +1,3 @@
+<%if params[:search].present? %>
+	$(".slider-data").html("<%= escape_javascript render(:partial => 'slider_data', locals: {sliders: @sliders}) %>");
+<%end%>

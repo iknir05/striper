@@ -1,0 +1,35 @@
+<div class="box">
+  <%#= will_paginate @admins %>
+            <div class="box-header row">
+              <div class="col-md-7">
+                <h3 class="box-title">Admin Users</h3>
+              </div>
+              <div class="col-md-5">
+                <%#= render 'layouts/admin_search_form'%>
+                <%#=form_tag url_for(action: 'show_admin'),remote: true  do %>
+                <%=form_tag({:action => 'show_admin'}, remote: true, ) do %>
+                  <%= radio_button_tag 'filter_status',1,false, class:'admin-show-decide'%>
+                  <label>Approved</label>
+                  <%= radio_button_tag 'filter_status',0,false,class:'admin-show-decide'%>
+                  <label>Rejected</label>
+                  <%= radio_button_tag 'filter_status','',true,class:'admin-show-decide'%>
+                  <label>To decide</label>
+                  <%= submit_tag "Find", id:"show-admin", style:"display:none";%>
+                <% end %>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body admin-users-data">
+                <%= render partial: 'admin_users_data', locals: {admins: @admins,filter_status:nil}%>
+            </div>
+</div>
+
+<script>  
+  $(document).ready(function () {
+      $(".admin-show-decide").on("click",function() {
+        console.log('aaa')
+        $("#show-admin").trigger('click');
+      }); 
+  }); 
+</script>  
+  

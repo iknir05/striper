@@ -1,3 +1,7 @@
+ <% admin = get_current_admin_user%>
+ <% notifications = get_few_notifications %>
+ <% pending_notification_count = get_pending_notification_count %>
+
   <header class="main-header">
     <!-- Logo -->
     <a href="index2.html" class="logo">  
@@ -93,43 +97,25 @@
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              <%= render 'layouts/notification_icon'%>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header">You have <%= pending_notification_count %> new notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                      page and may cause design problems
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
-                    </a>
-                  </li>
+
+                  <% notifications.each do |notification|%>
+                   <li <%if notification.is_read%>style="background-color:wheat;"<%end%> >
+                      <%= link_to(admin_update_notification_read_status_path(id: notification.id)) do%>
+                      <%#= link_to (get_notification_url(notification.category)) do%>
+                      <i class="<%= get_notification_icon(notification.category)%>"></i> <%=get_notification_description(notification)%>
+                      <% end %>
+                    </li>
+                  <% end%>
                 </ul>
               </li>
-              <li class="footer"><a href="#">View all</a></li>
+              <li class="footer"><%= link_to 'View all', admin_notifications_path%></li>
             </ul>
           </li>
           <!-- Tasks: style can be found in dropdown.less -->
@@ -210,7 +196,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= image_tag("admin/user2-160x160.jpg", class: "user-image", alt:"User Image") %>
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs"><%= "#{admin.first_name} #{admin.last_name}"  %></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -218,7 +204,7 @@
                 <%= image_tag("admin/user2-160x160.jpg", class:"img-circle", alt:"User Image") %>
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  <%= "#{admin.first_name} #{admin.last_name}"%> - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -256,3 +242,6 @@
       </div>
     </nav>
   </header>
+
+
+

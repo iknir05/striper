@@ -1,8 +1,25 @@
-class Admin::MenusController < ApplicationController
-	  layout 'admin'
+class Admin::MenusController < AdminController
+	  
 	  def index
-	  	
+	  	@menus = Menu.paginate(page: params[:page], per_page: 10).order("created_at ASC")
 	  end
+
+
+	  def search_filter
+	    @menus = Menu.all
+
+	    if params[:search].present?
+	      @menus = @menus.where("title like (?) or url like (?)", "%#{params[:search]}%","%#{params[:search]}%")
+	    end  
+
+	    @menus = @menus.paginate(page: params[:page], per_page: 10).order("created_at DESC")
+
+	    respond_to do |format|
+	      format.js 
+	    end
+
+	  end
+
 
 	  def show
 	  	@menu = Menu.find(params[:id])
@@ -47,6 +64,7 @@ class Admin::MenusController < ApplicationController
 		    redirect_to admin_menus_path
 	  	
 	  end
+
 
 	  private
 

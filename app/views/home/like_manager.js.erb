@@ -1,0 +1,4 @@
+
+var blog_id = "<%= @blog_id %>";
+
+$(".like-btn-"+blog_id).html("<%= escape_javascript render(:partial => 'like_button', locals: {blog_id: @blog_id}) %>");

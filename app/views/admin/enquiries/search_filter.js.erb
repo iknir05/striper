@@ -1,0 +1,3 @@
+<%if params[:search].present? or params[:state].present?%>
+$(".enquiry-data").html("<%= escape_javascript render(:partial => 'enquiry_data', locals: {enquiries: @enquiries})  %>")
+<%end%>''

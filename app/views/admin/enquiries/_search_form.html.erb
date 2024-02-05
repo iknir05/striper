@@ -1,0 +1,28 @@
+<%= form_tag({:action => 'search_filter'}, remote: true ,id:"search-form") do %>   
+  <div class="col-md-5">
+    <%= text_field_tag :search,"", class:"form-control search",placeholder:"Search Bar" %>
+  </div>
+  <div class="col-md-3">
+      <%= select_tag :state,options_for_select(Enquiry.select('distinct state').collect {|e| [e.state] }),class:"form-control search", placeholder:"State"%>
+  </div>
+  <div class="col-md-3">
+    <%= text_field_tag :search_date,"",:class => "form-control",placeholder:"Date", id:"datepick",class:"form-control search"%>
+  </div> 
+  <div class="col-md-1">
+     <%= submit_tag "Search", class: "btn btn-info pull-right", id:"submit", style:"display:none";%>                
+  </div>
+<% end %>
+
+
+<script>  
+  $(document).ready(function () {
+      $(function () {
+        $("#datepick").datepicker();
+      });
+
+      $(".search").on("change",function() {
+        $("#submit").trigger('click');
+      }); 
+  }); 
+</script>  
+  

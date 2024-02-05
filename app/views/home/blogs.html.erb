@@ -1,6 +1,4 @@
-<%blogs = get_all_blogs%> 
-
-   
+<%blogs = get_all_blogs%>    
 
 <section id="inner-banner" style="background-image: url(<%= asset_path 'about-banner.jpg'%>);">
     <%#= image_tag("intro.jpg", alt: 'Intro')%>
@@ -12,8 +10,6 @@
             </div>
         </div>
 </section>
-
-
 
 <section id="blog">
 
@@ -54,15 +50,15 @@
 
                                               <div class="row pt-3">
 
-                                                    <div class="col-md-5">
-                                                        <div class="blog-btn">
-                                                            
-                                                            <%= link_to "READ MORE", "blog/#{blog.title}", class:"btn btn-primary btn-sm no-radius"%>
-                                                            
+                                                    <div class="col-md-3">
+                                                        <div class="blog-btn">                                                            
+                                                            <%= link_to "READ MORE", "blog/#{blog.title}", class:"btn btn-primary btn-sm no-radius"%>                                                        
                                                         </div>
                                                     </div>
-                        
-                                                    <div class="col-md-7">
+                                                    <div class="col-md-5 like-btn-<%=blog.id%>">
+                                                        <%= render  partial: 'like_button', locals:{blog_id: blog.id}%>
+                                                    </div>                      
+                                                    <div class="col-md-4">
                                                         <div class="blog-social">
                                                             <a href="#" title="Facebook"><%=image_tag "fb.png", alt:"fb"%></a>
                                                             <a href="#" title="Twitter"><%=image_tag "tw.png", alt:"tw"%></a>
@@ -124,7 +120,7 @@
        </div>
 
     </div>
-
+    <div id="modal_wrapper"></div>
 </section>
 
 
@@ -134,4 +130,29 @@
                 <!-- FOOTER -->
                 
                 <%= render 'layouts/footer' %>    
+
+<script>  
+  $(document).ready(function () {
+ 
+    $(".like-count").on("click",function() {
+        var blog_id = $(this).attr("value");
+        console.log("blog-id is: "+blog_id);
+        $.ajax({
+            url: '/liked_users_list',
+            type: "GET",
+            data: {blog_id : blog_id}
+        });
+      });  
     
+    $(".unlike-count").on("click",function() {
+        var blog_id = $(this).attr("value");
+        console.log(" unlike blog-id is: "+blog_id);
+        $.ajax({
+            url: '/unliked_users_list',
+            type: "GET",
+            data: {blog_id : blog_id}
+        });
+    }); 
+
+  }); 
+</script>  
