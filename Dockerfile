@@ -2,7 +2,7 @@
 FROM ruby:2.4.3
 
 # Install Node.js and Yarn (needed for Rails asset compilation)
-RUN apt-get update
+# RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
 
 # Set the working directory
 WORKDIR /myapp
